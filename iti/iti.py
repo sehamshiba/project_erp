@@ -78,29 +78,56 @@ class iti_catagory(orm.Model):
     _name = 'iti.catagory'
     _columns = {
         'name': fields.char('Name'),
-        'cat_id': fields.char('cat_id'),
+        'cat_id': fields.integer('cat_id', required=True),
         'desc': fields.text('description'),
     }
+
+
 class iti_subcatagory(orm.Model):
     _name = 'iti.subcatagory'
     _columns = {
         'name': fields.char('Name'),
+        'subcat_id': fields.integer('subcat_id', required=True),
         'desc': fields.text('description'),
         'catagory_id': fields.many2one('iti.catagory', string='catagory'),
     }
+
 
 class iti_subsubcatagory(orm.Model):
     _name = 'iti.subsubcatagory'
     _columns = {
         'name': fields.char('Name'),
+        'subsubcat_id': fields.integer('subsubcat_id', required=True),
         'desc': fields.text('description'),
         'subcatagory_id': fields.many2one('iti.subcatagory', string='subcatagory'),
     }
 
+
 class iti_product(orm.Model):
     _name = 'iti.product'
+
+    def _calc_code(self, cr, uid, ids, name, arg, context=None):
+        result = {}
+        ids = self.search(cr, uid, [])
+
+        products = self.browse(cr, uid, ids, context)
+        for product in products:
+            if (product.catagory_id and product.subcatagory_id and product.subsubcatagory_id):
+                result[product.id] = str(product.code) + str(product.catagory_id.cat_id) + str(
+                    product.subcatagory_id.subcat_id) + str(product.subsubcatagory_id.subsubcat_id)
+
+        return result
+
+
+
     _columns = {
         'name': fields.char('Name'),
+        'price': fields.float('Price'),
+        'support': fields.char('Support'),
+        'productdate': fields.date('Productdate'),
+        'expirdate': fields.date('Expirdate'),
+        'code': fields.integer('Code', size=2, required=True),
+        'net_code': fields.function(_calc_code, string='Reference', store=True),
         'desc': fields.text('description'),
         'catagory_id': fields.many2one('iti.catagory', string='catagory'),
         'subcatagory_id': fields.many2one('iti.subcatagory', string='subcatagory'),

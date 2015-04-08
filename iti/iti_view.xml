@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <form string="ITI student" version="7.o">
                     <sheet>
-                        
+
                         <button name="set_accepted" type="object" string="accept">
                         </button>
                         <field name="img" widget="image"/>
@@ -114,7 +114,7 @@
 
         //catagory
 
-         <record id="iti_catagory_form" model="ir.ui.view">
+        <record id="iti_catagory_form" model="ir.ui.view">
             <field name="name">iti.catagory.form</field>
             <field name="model">iti.catagory</field>
             <field name="arch" type="xml">
@@ -149,6 +149,7 @@
                     <sheet>
                         <group string="Baise info">
                             <field name="name"/>
+                            <field name="subcat_id"/>
                             <field name="desc"/>
                         </group>
                     </sheet>
@@ -179,10 +180,11 @@
                     <sheet>
                         <group string="Baise info">
                             <field name="name"/>
+                            <field name="subsubcat_id"/>
+                            <field name="subcatagory_id"/>
                             <field name="desc"/>
                         </group>
                     </sheet>
-                    <field name="subcatagory_id"/>
 
                 </form>
             </field>
@@ -195,7 +197,8 @@
         </record>
         <menuitem id="top_iti" name="ITI"></menuitem>
         <menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>
-        <menuitem id="subsubcatagory_menu" name="subsubcatagory" parent="sid_menu" action="iti_subsubcatagory_action"></menuitem>
+        <menuitem id="subsubcatagory_menu" name="subsubcatagory" parent="sid_menu"
+                  action="iti_subsubcatagory_action"></menuitem>
 
         //product
 
@@ -205,14 +208,25 @@
             <field name="arch" type="xml">
                 <form string="Product" version="7.0">
                     <sheet>
-                        <group string="Baise info">
-                            <field name="name"/>
-                            <field name="desc"/>
+                        <group>
+                            <group string="Baise info">
+                                <field name="name"/>
+                                <!--<field name="amount"/>-->
+                                <field name="price"/>
+                                <field name="support"/>
+                                <field name="productdate"/>
+                                <field name="expirdate"/>
+                                <field name="desc"/>
+                            </group>
+                            <group string="info">
+                                <field name="catagory_id" string='catagory'/>
+                                <field name="subcatagory_id"/>
+                                <field name="subsubcatagory_id"/>
+                                <field name="code"/>
+                                <field name="net_code"/>
+                            </group>
                         </group>
                     </sheet>
-                    <field name="catagory_id" string='catagory'/>
-                    <field name="subcatagory_id"/>
-                    <field name="subsubcatagory_id"/>
 
                 </form>
             </field>
@@ -226,11 +240,6 @@
         <menuitem id="top_iti" name="ITI"></menuitem>
         <menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>
         <menuitem id="product_menu" name="product" parent="sid_menu" action="iti_product_action"></menuitem>
-
-
-
-
-
 
 
     </data>
