@@ -1,116 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
     <data>
-        <record id="iti_student_form" model="ir.ui.view">
-            <field name="name">iti.student.form</field>
-            <field name="model">iti.student</field>
-            <field name="arch" type="xml">
-                <form string="ITI student" version="7.o">
-                    <sheet>
+        <!--<record id="iti_student_form" model="ir.ui.view">-->
+        <!--<field name="name">iti.student.form</field>-->
+        <!--<field name="model">iti.student</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<form string="ITI student" version="7.o">-->
+        <!--<sheet>-->
 
-                        <button name="set_accepted" type="object" string="accept">
-                        </button>
-                        <field name="img" widget="image"/>
-                        <group>
-                            <group string="Baise info">
-                                <field name="name"/>
-                                <field name="age"/>
-                                <field name="salary"/>
-                                <field name="state"/>
-                            </group>
-                            <group string="Education">
-                                <field name="faculty"/>
-                                <field name="grade" on_change="dep_domain(grade)"/>
-                                <field name="graduation year"/>
-                            </group>
-                            <field name="department_id" domain="[('allowed','=',True)]"/>
-                            <field name="skills__ids" on_change="change_department(skills__ids)"/>
-                        </group>
-                        <notebook>
-                            <page string="signature">
-                                <field name="info"/>
-                            </page>
-                            <page string="Accepted">
-                                <field name="accepted"/>
-                            </page>
-                        </notebook>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-        <record id="iti_student_action" model="ir.actions.act_window">
-            <field name="name">ITI student</field>
-            <field name="res_model">iti.student</field>
-            <field name="view_type">form</field>
-            <field name="view_model">form</field>
-        </record>
-        <menuitem id="top_iti" name="ITI"></menuitem>
-        <menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>
-        <menuitem id="student_menu" name="students" parent="sid_menu" action="iti_student_action"></menuitem>
+        <!--<button name="set_accepted" type="object" string="accept">-->
+        <!--</button>-->
+        <!--<field name="img" widget="image"/>-->
+        <!--<group>-->
+        <!--<group string="Baise info">-->
+        <!--<field name="name"/>-->
+        <!--<field name="age"/>-->
+        <!--<field name="salary"/>-->
+        <!--<field name="state"/>-->
+        <!--</group>-->
+        <!--<group string="Education">-->
+        <!--<field name="faculty"/>-->
+        <!--<field name="grade" on_change="dep_domain(grade)"/>-->
+        <!--<field name="graduation year"/>-->
+        <!--</group>-->
+        <!--<field name="department_id" domain="[('allowed','=',True)]"/>-->
+        <!--<field name="skills__ids" on_change="change_department(skills__ids)"/>-->
+        <!--</group>-->
+        <!--<notebook>-->
+        <!--<page string="signature">-->
+        <!--<field name="info"/>-->
+        <!--</page>-->
+        <!--<page string="Accepted">-->
+        <!--<field name="accepted"/>-->
+        <!--</page>-->
+        <!--</notebook>-->
+        <!--</sheet>-->
+        <!--</form>-->
+        <!--</field>-->
+        <!--</record>-->
+        <!--<record id="iti_student_action" model="ir.actions.act_window">-->
+        <!--<field name="name">ITI student</field>-->
+        <!--<field name="res_model">iti.student</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_model">form</field>-->
+        <!--</record>-->
+        <!--<menuitem id="top_iti" name="ITI"></menuitem>-->
+        <!--<menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>-->
+        <!--<menuitem id="student_menu" name="students" parent="sid_menu" action="iti_student_action"></menuitem>-->
 
-        // department
-        <record id="iti_department_form" model="ir.ui.view">
-            <field name="name">iti.department.form</field>
-            <field name="model">iti.department</field>
-            <field name="arch" type="xml">
-                <form string="ITI department" version="7.0">
-                    <sheet>
-                        <group string="Baise info">
-                            <field name="name"/>
-                            <field name="desc"/>
-                        </group>
-                    </sheet>
-                    <field name="allowed" string="allowed"/>
-                    <field name="student_ids"/>
-                </form>
-            </field>
-        </record>
-        <record id="iti_department_action" model="ir.actions.act_window">
-            <field name="name">ITI department</field>
-            <field name="res_model">iti.department</field>
-            <field name="view_type">form</field>
-            <field name="view_model">form</field>
-        </record>
-        <menuitem id="top_iti" name="ITI"></menuitem>
-        <menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>
-        <menuitem id="department_menu" name="department" parent="sid_menu" action="iti_department_action"></menuitem>
+        <!--// department-->
+        <!--<record id="iti_department_form" model="ir.ui.view">-->
+        <!--<field name="name">iti.department.form</field>-->
+        <!--<field name="model">iti.department</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<form string="ITI department" version="7.0">-->
+        <!--<sheet>-->
+        <!--<group string="Baise info">-->
+        <!--<field name="name"/>-->
+        <!--<field name="desc"/>-->
+        <!--</group>-->
+        <!--</sheet>-->
+        <!--<field name="allowed" string="allowed"/>-->
+        <!--<field name="student_ids"/>-->
+        <!--</form>-->
+        <!--</field>-->
+        <!--</record>-->
+        <!--<record id="iti_department_action" model="ir.actions.act_window">-->
+        <!--<field name="name">ITI department</field>-->
+        <!--<field name="res_model">iti.department</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_model">form</field>-->
+        <!--</record>-->
+        <!--<menuitem id="top_iti" name="ITI"></menuitem>-->
+        <!--<menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>-->
+        <!--<menuitem id="department_menu" name="department" parent="sid_menu" action="iti_department_action"></menuitem>-->
 
-        //skills
-        <record id="iti_skills_form" model="ir.ui.view">
-            <field name="name">iti.skills.form</field>
-            <field name="model">iti.skills</field>
-            <field name="arch" type="xml">
-                <form string="Student skills" version="7.0">
-                    <sheet>
-                        <group string="Baise info">
-                            <field name="name"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-        <record id="iti_department_action" model="ir.actions.act_window">
-            <field name="name">ITI department</field>
-            <field name="res_model">iti.department</field>
-            <field name="view_type">form</field>
-            <field name="view_model">form</field>
-        </record>
-        <menuitem id="top_iti" name="ITI"></menuitem>
-        <menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>
-        <menuitem id="department_menu" name="department" parent="sid_menu" action="iti_department_action"></menuitem>
+        <!--//skills-->
+        <!--<record id="iti_skills_form" model="ir.ui.view">-->
+        <!--<field name="name">iti.skills.form</field>-->
+        <!--<field name="model">iti.skills</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<form string="Student skills" version="7.0">-->
+        <!--<sheet>-->
+        <!--<group string="Baise info">-->
+        <!--<field name="name"/>-->
+        <!--</group>-->
+        <!--</sheet>-->
+        <!--</form>-->
+        <!--</field>-->
+        <!--</record>-->
+        <!--<record id="iti_department_action" model="ir.actions.act_window">-->
+        <!--<field name="name">ITI department</field>-->
+        <!--<field name="res_model">iti.department</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_model">form</field>-->
+        <!--</record>-->
+        <!--<menuitem id="top_iti" name="ITI"></menuitem>-->
+        <!--<menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>-->
+        <!--<menuitem id="department_menu" name="department" parent="sid_menu" action="iti_department_action"></menuitem>-->
 
 
-        <record id="view_employee_form_inherit" model="ir.ui.view">
-            <field name="name">view.employee.form.inherit</field>
-            <field name="model">hr.employee</field>
-            <field name="inherit_id" ref="hr.view_employee_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='address_id']" position="replace">
-                    <field name="emp_code" requierd="1"/>
-                </xpath>
+        <!--<record id="view_employee_form_inherit" model="ir.ui.view">-->
+        <!--<field name="name">view.employee.form.inherit</field>-->
+        <!--<field name="model">hr.employee</field>-->
+        <!--<field name="inherit_id" ref="hr.view_employee_form"/>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<xpath expr="//field[@name='address_id']" position="replace">-->
+        <!--<field name="emp_code" requierd="1"/>-->
+        <!--</xpath>-->
 
-            </field>
-        </record>
+        <!--</field>-->
+        <!--</record>-->
 
         //catagory
 
@@ -200,6 +200,54 @@
         <menuitem id="subsubcatagory_menu" name="subsubcatagory" parent="sid_menu"
                   action="iti_subsubcatagory_action"></menuitem>
 
+        //Worehous
+
+        <record id="iti_warehouse_tree" model="ir.ui.view">
+            <field name="name">iti.warehouse.tree</field>
+            <field name="model">iti.warehouse</field>
+            <field name="arch" type="xml">
+                <tree string="Warehouses">
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="keeper_id"/>
+                    <field name="manager_id"/>
+                    <!--<field name="super_manager_id"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="iti_warehouse_form" model="ir.ui.view">
+            <field name="name">iti.warehouse.form</field>
+            <field name="model">iti.warehouse</field>
+            <field name="arch" type="xml">
+                <form string="Warehouse" version="7.0">
+                    <sheet>
+                        <group string="Basic Info">
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="keeper_id"/>
+                            <field name="manager_id"/>
+                            <!--<field name="super_manager_id"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="iti_warehouse_action" model="ir.actions.act_window">
+            <field name="name">ITI Warehouse</field>
+            <field name="res_model">iti.warehouse</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem id="top_warehouse" name="WareHouse"/>
+        <menuitem id="iti_warehouse_menu" name="ITI WareHouse" parent="top_warehouse"/>
+        <menuitem id="iti_warehouse_view" name="Show WareHouses" parent="iti_warehouse_menu"
+                  action="iti_warehouse_action"/>
+
+
         //product
 
         <record id="iti_product_form" model="ir.ui.view">
@@ -208,23 +256,43 @@
             <field name="arch" type="xml">
                 <form string="Product" version="7.0">
                     <sheet>
+                        <header>
+                            <!--<button name="product_recieved" string="استلام"  attrs="{'invisible':['|',('is_keeper','!=',True),('state','!=','new')]}"/>-->
+                            <button name="product_recieved" string="Recieved" states="new"/>
+                            <button name="product_under_review" string="Under Review" states="recieved"/>
+                            <button name="product_approved_commit1" string="Commitee 1" states="underReview"/>
+                            <button name="product_approved_commit2" string="Commitee 2" states="underReview"/>
+                            <button name="product_approved_commit3" string="Commitee 3" states="underReview"/>
+                            <button name="product_keeper_confirm" string="Keeper Confirm" states="approved"/>
+                            <button name="product_manager_confirm" string="Manager Confirm" states="keeperConfirm"/>
+                            <button name="product_in_stock" string="Super Manager Confirm" states="managerConfirm"/>
+
+
+                            <field name="state" widget="statusbar"
+                                   statusbar_visible="new,recieved,underReview,approved,keeperConfirm,managerConfirm,inStock"/>
+                        </header>
                         <group>
                             <group string="Baise info">
                                 <field name="name"/>
-                                <!--<field name="amount"/>-->
+                                <field name="amount"/>
                                 <field name="price"/>
-                                <field name="support"/>
                                 <field name="productdate"/>
-                                <field name="expirdate"/>
+                                <field name="expirdate"/>ٍ
+                                <field name="status"/>
+
                                 <field name="desc"/>
                             </group>
                             <group string="info">
                                 <field name="catagory_id" string='catagory'/>
                                 <field name="subcatagory_id"/>
                                 <field name="subsubcatagory_id"/>
+                                <field name="warehouse_id"/>
                                 <field name="code"/>
                                 <field name="net_code"/>
+                                <field name="suppliers_ids"/>
+
                             </group>
+                            <field name="is_keeper" invisible="1"/>
                         </group>
                     </sheet>
 
@@ -240,6 +308,79 @@
         <menuitem id="top_iti" name="ITI"></menuitem>
         <menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>
         <menuitem id="product_menu" name="product" parent="sid_menu" action="iti_product_action"></menuitem>
+
+
+        //suppliers
+
+        <record id="iti_supplier_form" model="ir.ui.view">
+            <field name="name">iti.supplier.form</field>
+            <field name="model">iti.supplier</field>
+            <field name="arch" type="xml">
+                <form string="Supplier" version="7.0">
+                    <sheet>
+                        <group string="Baise info">
+                            <field name="name"/>
+                            <field name="mail"/>
+                            <field name="mobile"/>
+                            <field name="address"/>
+                            <field name="products_ids"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="iti_supplier_tree" model="ir.ui.view">
+            <field name="name">iti.supplier.tree</field>
+            <field name="model">iti.supplier</field>
+            <field name="arch" type="xml">
+                <tree string="Suppliers">
+                    <field name="name"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="iti_suppliers_action" model="ir.actions.act_window">
+            <field name="name">Suppliers</field>
+            <field name="res_model">iti.supplier</field>
+            <field name="view_type">form</field>
+            <field name="view_model">form</field>
+        </record>
+        <!--<menuitem name="Suppliers" id="menu_iti_suppliers" parent="menu_iti_main" action="iti_suppliers_action"/>-->
+
+        <menuitem id="top_iti" name="ITI"></menuitem>
+        <menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>
+        <menuitem id="suplier_menu" name="suppliers" parent="sid_menu" action="iti_suppliers_action"></menuitem>
+
+        // search
+
+
+        <record id="iti_search_form" model="ir.ui.view">
+            <field name="name">iti.search.form</field>
+            <field name="model">iti.search</field>
+            <field name="arch" type="xml">
+                <form string="search for product">
+                    <field name="search"/>
+                    <field name="change" on_change="func1(search,change)"/>
+                    <field name="result"/>
+                    <button name=" iti_search_action" string="another search" type="action"/>
+                </form>
+            </field>
+        </record>
+        <record id="iti_search_action" model="ir.actions.act_window">
+            <field name="name">search</field>
+            <field name="res_model">iti.search</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <menuitem id="top_iti" name="ITI"></menuitem>
+        <menuitem id="sid_menu" name="ITI" parent="top_iti"></menuitem>
+        <menuitem id="search_menu" name="search" parent="sid_menu" action="iti_search_action"></menuitem>
+
+
 
 
     </data>
